@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "C:/Users/sahit/pracprog"
+		},
+		{
+			"path": "../bookin_page"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "bookin_page"
+	}
+}

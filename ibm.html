@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ibm</title>
+
+
+<style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+
+    }
+
+    .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;   
+  background-color: #f9711034;
+}
+
+
+.logoi{
+    width: 600px;
+    height: auto;
+}
+
+.logoi img{
+    width: 200px;
+    height: auto;
+}
+
+
+.logo-container img{
+    margin: 0px;
+  width: 100px;
+  height: auto;
+}
+
+.logo{
+     width: auto; 
+     margin-right: 10px;
+     padding-left: 80px;
+
+}
+
+
+nav {
+  display: flex;
+  gap: 130px;
+  padding-right: 80px;
+}
+
+nav a {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color:#FF740F;
+  font-weight:bolder;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+
+    h1, h2 {
+      text-align: left;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .feature {
+      width: 48%;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+    }
+
+    .containers{
+        padding-top: 15px;
+        background-color: #f9711034;
+        padding-bottom: 15px;
+        padding-left: 150px;
+    }
+
+
+    label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 195px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+select {
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select:focus {
+  border-color: #c8c7c7;
+  box-shadow: 0 0 10px rgba(40, 7, 255, 0.2);
+}
+
+.select-arrow {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#check-btn {
+    border: none;
+    font-size: medium;
+  background-color: #124bcd;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+#check-btn:hover {
+  background-color: #124bcd;
+}
+
+#apply-btn {
+  background-color: #ff6f00;
+  font-size: medium;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#apply-btn:hover {
+  background-color: #ff6f00;
+}
+
+
+  </style>
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="\landingpage\logo.png" alt="folkUs Logo" class="logo">
+        </div>
+      <nav>
+        <a href="#">Dashboard</a>
+      </nav>
+    </header> 
+
+
+    <div class="container">
+      <div class="logoi">
+        <img src="\landingpage\ibm.png" alt="IBM logo">
+      </div>
+      <h1>About Us</h1>
+      <p>IBM (International Business Machines Corporation) is a global technology and consulting company with a rich history of innovation and leadership in the IT industry. With its headquarters in Armonk, New York, IBM has been a pioneer in driving technological advancements for over a century.</p>
+<br>
+<br>
+
+      <h2>Why Work at IBM?</h2>
+      <p>Working at IBM offers students a chance to be part of a dynamic and innovative environment. Here are some key reasons to consider IBM for your career:</p>
+      <ul>
+        <li>Innovation Leader: IBM is at the forefront of technological innovation, with significant contributions to AI, cloud computing, quantum computing, and more.</li>
+        <li>Global Impact: With operations in over 170 countries, IBM provides opportunities to work on global projects that make a real difference.</li>
+        <li>Learning and Development: IBM invests heavily in employee growth, offering various programs for professional development, training, and continuous learning.</li>
+        <li>Diversity and Inclusion: IBM is committed to creating an inclusive work environment that values diversity and fosters collaboration.</li>
+        <li>Cutting-Edge Technology: Employees get to work with the latest technologies and tools, driving the future of IT and business solutions</li>
+      </ul>
+
+
+<br>
+<br>
+      <h2>Key Areas of Work at IBM</h2>
+      <ul>
+        <li>Artificial Intelligence (AI) and Machine Learning: Work on IBM Watson, a leading AI platform used across industries for data analysis, natural language processing, and more.</li>
+        <li>Cloud Computing: Develop and manage solutions on IBM Cloud, helping businesses optimize their operations and innovate faster.</li>
+        <li>Quantum Computing: Join the team pioneering quantum computing technology, with opportunities to work on IBM Quantum.</li>
+        <li>Cybersecurity: Protect critical information with IBM's advanced cybersecurity solutions and services.</li>
+        <li>Software Development: Contribute to the creation of innovative software products and enterprise solutions.</li>
+      </ul>
+      <p><a href="#">Learn More</a></p>
+    </div>
+  
+
+  
+    <div class="containers">
+      <h2>CHECK ELIGIBILITY</h2>
+      
+      <form>
+        <label for="cgpa">CGPA:</label>
+        <input type="number" id="cgpa" name="cgpa" step="0.01" min="0" max="10" required>
+        <br>
+        <br>
+        <label for="branch">Branch of Engineering:</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select a branch</option>
+          <option value="CSE">Computer Science and Engineering</option>
+          <option value="ECE">Electronics and Communication Engineering</option>
+          <option value="EEE">Electrical and Electronics Engineering</option>
+          <option value="ME">Mechanical Engineering</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" id="check-btn" onclick="checkEligibility()">Check Eligibility</button>
+      </form>
+    
+      <br>
+      <br>
+      
+      <button type="button" id="apply-btn" style="display: none;" onclick="applyForInterview()">Apply for Interview
+        
+      </button>
+    
+      <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+      <script>
+        function checkEligibility() {
+          const cgpa = document.getElementById('cgpa').value;
+          const branch = document.getElementById('branch').value;
+    
+          if (cgpa >= 7 && branch === 'CSE') {
+            document.getElementById('apply-btn').style.display = 'block';
+            Toastify({
+              text: "You are eligible to apply!",
+              duration: 3000,
+              close: true,
+              gravity: "top",
+              position: "right",
+              backgroundColor: "#4CAF50",
+              stopOnFocus: true,
+            }).showToast();
+          } else {
+            document.getElementById('apply-btn').style.display = 'none';
+            Toastify({
+              text: "You are not eligible to apply.",
+              duration: 3000,
+              close: true,
+              gravity: "top",
+              position: "right",
+              backgroundColor: "#FF9800",
+              stopOnFocus: true,
+            }).showToast();
+          }
+        }
+   
+        function applyForInterview() {
+         window.location.href = "/bookin_page/BOOK.html";}
+        
+      </script>
+</body>
+</html>
+ 

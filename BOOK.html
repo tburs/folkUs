@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Slot Booking Form</title>
+    <script type="module" src="book3.js"></script>
+    <link rel="stylesheet" href="styleb.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo-container">
+        <img src="\landingpage\logo.png" alt="folkUs Logo" class="logo">
+    </div>
+  <nav>
+    <a href="#">Dashboard</a>
+  </nav>
+</header> 
+
+<br>
+<br>
+
+    <h1>Book Your Interview Slot</h1>
+    <form id="booking-form" enctype="multipart/form-data">
+        <!-- Basic Information -->
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required><br>
+
+        <!-- Academic Information -->
+        <label for="degree">Degree Program:</label>
+        <select id="degree" name="degree" required>
+            <option value="BTech">B.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="MTech">M.Tech</option>
+            <option value="B.E">B.E</option>
+            <!-- Add other options as needed -->
+        </select><br>
+
+        <label for="department">Department/Major:</label>
+        <input type="text" id="department" name="department" required><br>
+
+        <label for="year">Year of Study:</label>
+        <select id="year" name="year" required>
+            <option value="1st">1st Year</option>
+            <option value="2nd">2nd Year</option>
+            <option value="3rd">3rd Year</option>
+            <option value="4th">Final Year</option>
+        </select><br>
+
+        <label for="cgpa">CGPA/Percentage:</label>
+        <input type="number" step="0.01" id="cgpa" name="cgpa" required><br>
+
+        <!-- Interview Preferences -->
+        <label for="preferredDate">Date of birth</label>
+        <input type="datetime-local" id="preferredDate" name="preferredDate" required><br>
+
+        <label for="mode">Preferred Mode of Interview:</label>
+        <select id="mode" name="mode" required>
+            <option value="online">Online</option>
+            <option value="inPerson">In-person</option>
+        </select><br>
+
+        <!-- Additional Information -->
+        <label for="resume">Upload Resume:</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required><br>
+
+        <!-- Consent and Agreement -->
+        <label>
+            <input type="checkbox" id="terms" name="terms" required> I agree to the <a href="/terms-and-conditions">terms and conditions</a>
+        </label><br>
+
+        <label>
+            <input type="checkbox" id="privacy" name="privacy" required> I agree to the <a href="/privacy-policy">privacy policy</a>
+        </label><br>
+
+        <label>
+            <input type="checkbox" id="notifications" name="notifications"> I would like to receive notifications
+        </label><br>
+
+        <!--<button type="submit" id="submit">Book Interview Slot</button>-->
+
+        <button type="submit" id="submit" onclick="saveDataToFirebase(event); event.preventDefault()">Book Interview Slot</button>
+        <button type="button" id="submit2" onclick="redirectToDatePage(event)">NEXT</button>
+
+
+
+      
+            <!--the part i wrote for the idk submitting form-->    
+          <script>
+            function saveDataToFirebase(event) {
+              // Get the form data
+              var formData = new FormData(document.getElementById('booking-form'));
+          
+              // Convert FormData to a JavaScript object
+              var data = {};
+              formData.forEach(function(value, key) {
+                data[key] = value;
+              });
+                // Add a creation time field to the data object
+            data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+          
+              // Save the data to Firestore
+              firebase.firestore().collection('TheStudentList').add(data).then(function(docRef) {
+                console.log('Data saved to Firestore!', docRef.id);
+              }).catch(function(error) {
+                console.error('Error saving data to Firestore:', error);
+              });
+            }
+          </script>
+
+<!--the part i wrote from getting user.id-->
+<script>
+    async function redirectToDatePage() {
+      // Get the latest 10 documents from TheStudentList collection, ordered by createdAt in descending order
+      const db = firebase.firestore();
+      const studentListRef = db.collection('TheStudentList');
+      const querySnapshot = await studentListRef
+        .orderBy('createdAt', 'desc') // Sort documents by createdAt in descending order
+        .limit(10) // Limit to the latest 10 documents
+        .get();
+  
+      // Get the ID of the latest document (i.e., the first document in the query snapshot)
+      const latestDoc = querySnapshot.docs[0];
+      const userId = latestDoc.id;
+  
+      // Redirect to the date picker page with the user ID as a query parameter
+      window.location.href = `/dates/datepicker.html?userId=${userId}`;
+    }
+  </script>
+
+
+        
+
+          
+          
+    </form>
+    <div id="toast"></div>
+
+
+    <script>
+        
+        document.getElementById('booking-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            
+            try {
+                const response = await fetch('/api/book-slot', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Slot booked successfully!');
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Error booking slot:', error);
+                alert('Failed to book slots');
+            }
+        });
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>  
+   
+
+
+</body>
+</html>

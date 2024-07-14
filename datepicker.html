@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>book slot</title>
+   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" >
+   <link rel="stylesheet" href="date.css">
+   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+   <script type="module" src="date.js"></script>
+
+
+</head>
+
+<body>
+
+   <header class="header">
+      <div class="logo-container">
+          <img src="\landingpage\logo.png" alt="folkUs Logo" class="logo">
+      </div>
+    <nav>
+      <a href="#">Dashboard</a>
+    </nav>
+  </header>
+
+
+
+
+
+   <div class="container" id="container">
+   <input type="text" id="datepicker" placeholder="Select Date" />
+
+   <br>
+   <br>
+   <br>
+
+   <input type="text" id="timepicker" placeholder="Select Time" />
+
+   
+
+   </div>
+   <script>
+     flatpickr("#datepicker", {
+       enableTime: false,
+       dateFormat: "d-m-Y",
+       minDate: "today",
+       maxDate: new Date(new Date().getTime() + 50 * 24 * 60 * 60 * 1000), 
+       defaultDate: new Date(), 
+       defaultOpen: true, 
+       inline: true,
+       onChange: function(selectedDates, dateStr, instance) {
+         document.getElementById("timepicker").dataset.date = dateStr;
+       }
+     });
+ 
+     flatpickr("#timepicker", {
+       enableTime: true,
+       noCalendar: true,
+       time_24hr: true,
+       dateFormat: "H:i",
+       minTime: "09:00",
+       maxTime: "16:00",
+       minuteIncrement:60,
+
+       defaultHour: 9,
+       defaultMinute: 0,
+       onChange: function(selectedDates, dateStr, instance) {
+         const selectedDate = document.getElementById("datepicker").value;
+         const selectedTime = dateStr;
+         const combinedValue = `${selectedDate} ${selectedTime}`;
+         console.log(combinedValue);
+       }
+     });
+   </script>
+
+   <style>
+      .container {
+        text-align: center;
+        margin: 40px auto; 
+      }
+      
+      .flatpickr-calendar {
+         font-family: "Inter", sans-serif;
+         margin: 50px auto; 
+         background-color: rgb(255, 255, 255);
+         font-size: larger
+       }
+
+       .flatpickr-day{
+         background-color: white;
+       }
+
+         .flatpickr-day:hover{
+            background-color: #FF740F;
+         }
+
+         .flatpickr-day.selected{
+            background-color: blue;
+            color: white;
+
+         }
+         
+
+    </style>
+
+
+   <button type="submit" id="submit">submit slot</button>
+
+
+  
+
+   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('userId');
+
+    // Use the userId variable in your code
+    console.log(`User ID: ${userId}`);
+    
+  </script>
+ 
+   
+ 
+
+ <div id="time-slots"></div>
+
+<script>
+  // ... (rest of the code remains the same)
+
+  // Display the available time slots in the #time-slots element
+  Object.keys(emptySlots).forEach((date) => {
+    const availableTimeSlots = emptySlots[date];
+    const timeSlotElement = document.getElementById('time-slots');
+    const timeSlotHTML = `<h2>${date}</h2><ul>`;
+    availableTimeSlots.forEach((timeSlot) => {
+      timeSlotHTML += `<li>${timeSlot}</li>`;
+    });
+    timeSlotHTML += `</ul>`;
+    timeSlotElement.innerHTML += timeSlotHTML;
+  });
+</script>
+
+<style>
+#time-slots {
+  padding: 20px;
+}
+
+#time-slots h2 {
+  margin-top: 0;
+}
+
+#time-slots ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#time-slots li {
+  margin-bottom: 10px;
+}
+
+#time-slots li:last-child {
+  margin-bottom: 0;
+}
+</style>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>  
+
+ </body>
+
+</html>

@@ -1,0 +1,167 @@
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+
+
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: left;
+   padding: 50px;  
+   background-color: #ff730f37;
+ }
+
+
+ .logo-container img{
+   width: 60px;
+  height: auto;
+ }
+
+ .logo1{
+      max-height: auto;
+      width: auto; 
+      margin-right: 10px;
+      padding-left: 80px;
+
+ }
+
+
+
+ .header a {
+   text-decoration: none;
+   color: #FF740F;
+   font-size: 16px;
+ }
+
+ .header a:hover {
+   text-decoration: underline;
+ }
+
+
+
+
+
+nav {
+   display: flex;
+   gap: 130px;
+   padding-right: 80px;
+ }
+
+ nav a {
+   font-family: "Inter", sans-serif;
+   text-decoration: none;
+   color:#FF740F;
+   font-weight:bolder;
+ }
+
+ nav a:hover {
+   color: #000000;
+ }
+
+
+
+
+.company-cards {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  display: inline-block;
+   background-color: #fff;
+   padding: 20px;
+   margin: 5px;
+   width: calc(25% - 10px);
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+   margin-top: 0;
+}
+
+.load-more {
+   background-color: #333;
+   color: #fff;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   margin: 20px auto;
+}
+
+
+ 
+ .logo {
+   display: inline-block;
+   width: 50px;
+   height: 50px;
+   margin-right: 10px;
+   border-radius: 50%;
+   background-color: #f0f0f0;
+   text-align: center;
+   line-height: 50px;
+   font-size: 24px;
+   color: #333;
+ }
+ 
+ .title {
+   font-size: 18px;
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+ 
+ .info {
+   margin-bottom: 10px;
+ }
+ 
+ .info span {
+   display: inline-block;
+   margin-right: 10px;
+ }
+ 
+ .button {
+   background-color: #4CAF50;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+
+
+ .footer {
+   background-color: #f2f2f2;
+   padding: 20px;
+   text-align: center;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+ }
+ 
+ .footer a {
+   color: #000000;
+   text-decoration: none;
+ }
+ 
+ .footer a:hover {
+   text-decoration: underline;
+ }

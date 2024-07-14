@@ -1,0 +1,273 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ffffff51;
+}
+
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;   
+  background-color: rgba(255, 98, 0, 0.204)
+}
+
+
+.logo-container img{
+  width: 180px;
+  height: auto;
+}
+
+.logo{
+     width: auto; 
+     margin-right: 10px;
+     padding-left: 80px;
+
+}
+
+
+nav {
+  display: flex;
+  gap: 130px;
+  padding-right: 80px;
+}
+
+nav a {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color:#FF740F;
+  font-weight:bolder;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+
+
+
+
+
+h1 {
+  font-size:larger;
+  font-family:'Archivo Black', sans-serif;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+#booking-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(245, 88, 53, 0.363);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+button[type="submit"]:active,
+button[type="button"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-group input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+
+@media (max-width: 768px) {
+  #booking-form {
+    padding: 10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #booking-form {
+    padding: 5px;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+#toast {
+    visibility: hidden;
+    width: 100%;
+    max-width: 450px;
+    background: #f8ffff;
+    border: 1px solid #bedfe6;
+    border-left: 5px solid #2185d0;
+    border-radius: 5px;
+    padding: 15px;
+  
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @keyframes fadein {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeout {
+    from {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  
+    to {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+  
+  #toast.top {
+    top: 20px;
+    bottom: auto;
+  }
+  
+  #toast.right {
+    left: auto;
+    right: 20px;
+  }
+  
+  #toast.left {
+    left: 20px;
+    right: auto;
+  }
+  
+  #toast.success {
+    background: #fbfff8;
+    border: 1px solid #bee6bf;
+    border-left: 5px solid #38d021;
+  }
+  
+  #toast.error {
+    background: #fff8f8;
+    border: 1px solid #e6bebe;
+    border-left: 5px solid #d02121;
+  }
+  
+  #toast.warning {
+    background: #fffbf8;
+    border: 1px solid #e6d0be;
+    border-left: 5px solid #d06421;
+  }
+
+
+
+
+
+ 
+
