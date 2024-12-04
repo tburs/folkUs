@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background-color: rgb(255, 195, 104);
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffa43cee;
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
+            text-align: center;
+            position: relative; /* Changed to relative */
+            width: 100%;
+        }
+
+        footer nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        footer nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 140px); /* Adjust for header and footer height */
+            flex-direction: column;
+        }
+
+        .search-container {
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 15px;
+            font-size: 1rem;
+            width: 300px;
+            border: 1.5px solid #000000;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-btn {
+            background-color: #0740CD;
+            color: white;
+        }
+
+        .search-btn:hover {
+            background-color: #0740CD;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 250px; /* Adjusted width */
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .dropdown-content label {
+            display: block;
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content input[type="checkbox"],
+        .dropdown-content input[type="number"] {
+            margin: 5px 0;
+            text-align: left;
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Range Slider */
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Dashboard</h1>
+        <nav>
+            <a href="#profile">Profile</a>
+            <a href="#student-database">Student Database</a>
+            <a href="#company-database">Company Database</a>
+            <a href="#logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="search-container">
+            <div class="search-title"><h3>Search student database</h3></div>
+            <div>
+                <input type="text" placeholder="Search...">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div style="margin-top: 20px;">
+                <div class="dropdown">
+                    <button class="search-btn">Filter</button>
+                    <div class="dropdown-content">
+
+                        <label><input type="checkbox" value="branch"> Computer Science</label>
+                        <label><input type="checkbox" value="branch"> Electronics and Communication</label>
+                        <label><input type="checkbox" value="branch"> Electrical and Electronics</label>
+                        <label><input type="checkbox" value="no-backlog"> No Backlog</label>
+                        <label><input type="checkbox" value="cgpa" class="filter-cgpa"> CGPA</label>
+
+
+                        <div class="cgpa-range" style="display: none;">
+                            <label for="min-cgpa">Minimum CGPA:</label>
+                            <input type="number" id="min-cgpa" min="0" max="10" step="0.1" value="0">
+                            <label for="max-cgpa">Maximum CGPA:</label>
+                            <input type="number" id="max-cgpa" min="0" max="10" step="0.1" value="10">
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="search-btn">Sort</button>
+                    <div class="dropdown-content">
+                        <label><input type="radio" name="sort" value="lower-to-higher"> Lower to Higher CGPA</label>
+                        <label><input type="radio" name="sort" value="higher-to-lower"> Higher to Lower CGPA</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Range Slider -->
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <nav>
+            <a href="#homepage">Homepage</a>
+            <a href="#logout">Logout</a>
+        </nav>
+    </footer>
+
+    <script>
+        const cgpaCheckboxes = document.querySelectorAll('.filter-cgpa');
+        const cgpaRange = document.querySelector('.cgpa-range');
+
+        cgpaCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (Array.from(cgpaCheckboxes).some(checkbox => checkbox.checked)) {
+                    cgpaRange.style.display = 'block';
+                } else {
+                    cgpaRange.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
